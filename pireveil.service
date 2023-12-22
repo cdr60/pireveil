@@ -1,0 +1,17 @@
+[Unit]
+Description=PiReveil
+After=rc-local.service
+
+
+[Service]
+Type=simple
+#Restart=always
+User=root
+ExecStart=/usr/bin/python3 /home/pi/pireveil/pireveil.py
+#TimeoutSec=infinity
+PIDFile=/home/pi/pireveil/pireveil.pid
+
+[Install]
+WantedBy=multi-user.target
+
+

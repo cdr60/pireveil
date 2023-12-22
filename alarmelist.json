@@ -1,0 +1,5 @@
+[
+  {"id":"0", "name":"Beep" , "filename":"/home/pi/pireveil/alarme/beep.mp3"},
+  {"id":"1", "name":"Incendie" , "filename":"/home/pi/pireveil/alarme/incendie.mp3"},
+  {"id":"2", "name":"Coq" , "filename":"/home/pi/pireveil/alarme/coq.mp3"}
+]
