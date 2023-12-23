@@ -1,5 +1,5 @@
 # Pi Dream Machine (pireveil)
-Raspberry Pi Dream machine : French version on my blog at <a href='https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/'>https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/</a>
+Raspberry Pi Dream machine : French version on my blog : <a href='https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/'>https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/</a>
 <br><br>
 
 Building a dream machine using a Raspberry Pi
@@ -82,36 +82,37 @@ Mine is a Raspberry Pi2 with a Wifi USB dongle and a silent cooling box like thi
 Opening this text file you will see variables and values
 <ul>
 <li>alarme section: Here, pireveil.py will load and save your parameters (alarm clock, what to do to wake you up)</li>
-<li>audio section: what file will be played if you ask to listen it. index values corresponds to json files</li>
-<li>click section: short : the minimum click time to understand that it is a short click. Long : same for long click (in ms)</li>
-<li>color section: d is for day, n is for night. font_1 is for big font text. font_2 is for small font text. ico is for icons</li>
+<li>audio section: What file will be played if you ask to listen to it. index values corresponds to json files</li>
+<li>click section: Short : set the minimum click time for a short click (in ms)</li>
+<li>click section: Long : same but for a long click (in ms)</li>
+<li>color section: d is for day, n is for night, font_1 is for big font text, font_2 is for small font text, ico is for icons</li>
 </ul>   
 
-Using buttons, pireveil.py will change and save alarme and audio sections
-If you want to change click or color settins, you will have to open param.ini and change theres values.
+Using the buttons, pireveil.py will change and save alarme and audio sections
+If you want to change click or color settings, you will have to open param.ini and change their values.
 
 # How to install
 <ul>
-<li>Launch sudo bash installpackage.sh</li>
+<li>Run "sudo bash installpackage.sh" in the console</li>
 <li>Check your screen and your buttons with python3 main.py and python3 key_demo.py</li>
-<li>Launch pireveil.py to check it works</li>
-<li>Put some mp3 files in musique folder and change audiolist.json content</li>
-<li>Launch again pireveil.py to check it works</li>
-<li>Open installservice.sh and pireveil.service to use the folder you have installed pireveil</li>
-<li>Launch sudo bash installservice.sh</li>
-<li>Launch sudo systemctl start pireveil.service</li>
-<li>Launch sudo systemctl status pireveil.service. If it's ok ? Well it's done !</li>
+<li>Launch pireveil.py to check if it works</li>
+<li>Put some mp3 files in the musique folder and change audiolist.json content</li>
+<li>Launch pireveil.py again to check if it works</li>
+<li>Open installservice.sh and pireveil.service to use the folder where you have installed PiReveil</li>
+<li>Run "sudo bash installservice.sh"</li>
+<li>Run "sudo systemctl start pireveil.service"</li>
+<li>Run "sudo systemctl status pireveil.service". If it's ok then it's done !</li>
 </ul> 
 
-# How to use : the screens
+# How to use the screens
 <b>PiReveil can show 2 differents screens</b>
-The first is the main. It shows :
+The first one is the main, it shows :
 <ul>
 <li>
-If playing someting : a play icons
+If it's playing something : a play icon
 </li>
 <li>
-3 icons : for beeping, listening radio and listening mp3 or m3u. If one is red then alarm is on and the red one describes what pireveil will do
+3 icons : for beeping, listening to the radio and listening to mp3 or m3u files. A red icon indicates the alarm is on and which type of media will be played to wake you up.
 </li>
 <li>
 Current time
@@ -120,46 +121,46 @@ Current time
 Current date
 </li>
 <li>
-Current alarm time and what pireveil will do (radio stations name , mp3 name or beep file name)
+Current alarm time and what PiReveil will do (radio stations' name, mp3 or m3u name or beep file name)
 </li>
 <li>
-If set, what you can listen now (radio stations name , mp3 name or beep file name)
+If you have set a media to listen to now, you can play it by pushing the corresponding button (radio stations name , mp3 name or beep file name)
 </li>
 </ul>
 
-<b>The second is the alarmclock seetings. It shows :</b>
+<b>The second is the alarmclock seetings, it shows :</b>
 <ul>
 <li>
-If playing someting : a play icons
+If it's playing someting : a play icon
 </li>
 <li>
-3 icons : for beeping, listening radio and listening mp3 or m3u. If one is red then alarm is on and the red one describes what pireveil will do
+3 icons : for beeping, listening to the radio and listening to mp3 or m3u files. A red icon indicates the alarm is on and which type of media will be played to wake you up.
 </li>
 <li>
 Current alarm time and a red cursor that indicates what digit you can change now
 </li>
 </ul>
 
-# How to use : the buttons
+# How to use the buttons
 <b>On the main screen :</b>
 <ul>
-<li>K1 short click : select next beep sound to listen until none and then select first</li>
-<li>K2 short click : select next radio station  to listen until none and then select first</li>
-<li>K3 short click : select next mp3/mu3 fiels  to listen until none and then select first</li>
-<li>K1 long click : start/stop listening selected beep file</li>
-<li>K2 long click : start/stop listening selected radio station</li>
-<li>K3 long click : start/stop listening selected mp3 or mu3 file</li>
-<li>Joypad short keypress : stop listening whatever the source is (Ex : it stops alarm as well as listening radio)</li>
-<li>Joypad long keypress : Arming alarm with audio source selected</li>
+<li>K1 short click : cycle to the next beep sound until it shows none are selected then pressing it again will come back to the first</li>
+<li>K2 short click : cycle to the next radio station sound until it shows none are selected then pressing it again will come back to the first</li>
+<li>K3 short click : cycle to the next mp3/m3u file sound until it shows none are selected then pressing it again will come back to the first</li>
+<li>K1 long click : start/stop listening to the selected beep file</li>
+<li>K2 long click : start/stop listening to the selected radio station</li>
+<li>K3 long click : start/stop listening to the selected mp3 or m3u file</li>
+<li>Joypad short press : stop listening to whatever the source is (Ex : it stops the alarm as well as the radio, mp3/m3u files, or beep files)</li>
+<li>Joypad long press : Arming alarm with audio source selected</li>
 <li>Joypad long UP : Go to alarm screen</li>
 </ul>
 
 <b>On the alarm screen :</b>
 <ul>
-<li>K1 short click : select next beep sound to play on alarm event until none and then select first</li>
-<li>K2 short click : select next radio station to play on alarm event until none and then select first</li>
-<li>K3 short click : select next mp3/mu3 files to play on alarm event until none and then select first</li>
-<li>Joypad short keypress : Select alarm clock next digit</li>
+<li>K1 short click : cycle to the next beep sound to play as the alarm until it shows none are selected then pressing it again will come back to the first</li>
+<li>K2 short click : cycle to the next radio station to play as the alarm until it shows none are selected then pressing it again will come back to the first</li>
+<li>K3 short click : cycle to the next mp3/m3u file to play as the alarm until it shows none are selected then pressing it again will come back to the first</li>
+<li>Joypad short press : Skip to the next digit to modify on the alarm</li>
 <li>Joypad short left : decrease selected digit</li>
 <li>Joypad short right : increase selected digit</li>
 <li>Joypad long UP : Return to main screen</li>
