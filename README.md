@@ -1,19 +1,20 @@
 # pireveil
-Raspberry Pi Dream machine
+Raspberry Pi Dream machine : French version on my blog at <a href='https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/'>https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/</a>
+<br><br>
 
 Building a dream machine using a Raspberry Pi
 
-<img src="./images/pireveil.png" width="128"/>
+<img src="./images/pireveil.png" width="256"/>
 <br><br>
 
 # what do you need ?
 <ul>
 <li>A raspberry Pi (whatever it is : Pi Zéro, 1, 2, 3, 4 ,5) with internet connexion (Ethernet or Wifi)<br>
 Mine is a Raspberry Pi2 with Wifi USB dongle and a silent cooling box like this<br><br>
-<img src="./images/radiateur_pi.png" width="128"/>
+<img src="./images/radiateur_pi.png" width="256"/>
 </li>
 <li>An Oled screen 128x128 pixels with 3 buttons and 1 joypad (from Waveshare)<br><br>
-<img src="./images/1.44inch-lcd-hat-1.jpg" width="128"/>
+<img src="./images/1.44inch-lcd-hat-1.jpg" width="256"/>
 </li>
 <li>Raspberry OS Lite (no need for Desktop) 
 </li>
