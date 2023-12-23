@@ -1,4 +1,4 @@
-# pireveil
+# Pi Dream Machine (pireveil)
 Raspberry Pi Dream machine : French version on my blog at <a href='https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/'>https://blog-info.cd-ii.fr/un-radio-reveil-a-base-de-raspiberry-pi/</a>
 <br><br>
 
@@ -7,10 +7,10 @@ Building a dream machine using a Raspberry Pi
 <img src="./images/pireveil.png" width="256"/>
 <br><br>
 
-# what do you need ?
+# What do you need ?
 <ul>
-<li>A raspberry Pi (whatever it is : Pi Zéro, 1, 2, 3, 4 ,5) with internet connexion (Ethernet or Wifi)<br>
-Mine is a Raspberry Pi2 with Wifi USB dongle and a silent cooling box like this<br><br>
+<li>A raspberry Pi (whichever you choose : Pi Zero, 1, 2, 3, 4 ,5) with an internet connexion (Ethernet or Wifi)<br>
+Mine is a Raspberry Pi2 with a Wifi USB dongle and a silent cooling box like this<br><br>
 <img src="./images/radiateur_pi.png" width="256"/>
 </li>
 <li>An Oled screen 128x128 pixels with 3 buttons and 1 joypad (from Waveshare)<br><br>
@@ -21,67 +21,68 @@ Mine is a Raspberry Pi2 with Wifi USB dongle and a silent cooling box like this<
 <li>External speakers</li>
 </ul>
 
-# what do you have to know before ?
+# What do you have to know before ?
 <ul>
-<li>How to begin with a Rapsberry Pi (using SD Card, installing OS)</li>
+<li>How to begin with a Rapsberry Pi (using a SD Card, installing the OS)</li>
 <li>How to launch commands via Terminal or ssh client</li>
 </ul>
 
-# what these dream machine can do  ?
+# What these dream machine can do  ?
 <ul>
-<li>Show current date time</li>
-<li>Let you setting alarm clock</li>
-<li>Let you choose what the Pi will launch to wake you up</li>
-<li>Let you choose between some electronics samples, mp3, mu3, web radio to listen or to wake-up</li>
+<li>Shows current date and time</li>
+<li>Lets you set an alarm</li>
+<li>Lets you choose what the Pi will play to wake you up</li>
+<li>Lets you choose between some sound samples, mp3, m3u, web radio to listen now or to be used to wake you up</li>
 <li>Automatic font color change (day/night) to reduce brightness</li>
 </ul>
 
-# What software technology does it use  ?
+# What technologies does it use  ?
 <ul>
 <li>Python 3</li>
 <li>Systemctl service setting</li>
 <li>Internet web radio streaming</li>
 </ul>
 
-# What will you find on there repo  ?
+# What will you find on the repository  ?
 <ul>
 <li>Alarme directory : some mp3 files you can use to wake you up
     <ul>
     <li>beep.mp3 : a simple beep sound</li>
-    <li>incendie.mp3 : a firing alarm sound</li>
+    <li>incendie.mp3 : a fire alarm sound</li>
     <li>coq.mp3 : a rooster crowing sound</li>
     </ul>
 </li> 
 <li>Musique directory
     <ul>
-    <li>You have to put here your favorites mp3 songs</li>
+    <li>You have to put your favorites mp3 songs here</li>
     </ul>
 </li>   
 <li>root directory
     <ul>
     <li>alarmelist.json : a json file that describes which alarm sounds you can choose (mp3 files must exist in alarme directory)</li>
-    <li>audio.json : a json file that describes which mp3 or m3u files you can choose (mp3 and m3u files must exist in musique directory). I've my my personnal audio list in but the files are not in the musique folder of course.</li>
-    <li>create_m3u.sh : a simple shell script that can help you to create your own m3u files.</li>
-    <li>installpackage.sh : a simple shell script that will install all packages and librarys that you need</li>
-    <li>installsertvice.sh : a simple shell script that will install the service to make it start at each boot.<br><b>Be carefull</b> : it assumes that all is in  /home/pi/pireveil/. If not, you will have to change it.</li>
-    <li>key_demo.py : a short script coming with the screen that can help you to test the screen and the buttons.</li>
-    <li>LCD_1in44.py and LCD_Config.py : Essentials libraries to drive the screen.</li>
-    <li>main.py : a short script coming with the screen that demonstrates the screen capacities.</li>
-    <li>param.ini : Essentials dream machine parameters.</li>
-    <li>pireveil.py : the PiReveil software.</li>
-    <li>pireveil.service : the PiReveil descrption service file for systemctl <b>Becareful</b> Open it and change the directories script if necessary.</li>
-    <li>play.py : A very simple python script used by pireveil.py to play mp3, m3u and radio stremaing.</li>
-    <li>radiolist.json : a json file that describes and list somme webradio : make your own with your favorit editor</li>
-    <li>time.bmp : An image that pireveil will show while starting.</li>
+    <li>audio.json : a json file that describes which mp3 or m3u files you can choose (mp3 and m3u files must exist in musique directory).<br>
+    I put my personnal audio list here but can't include it due to copyright reasons</li>
+    <li>create_m3u.sh : a simple shell script that helps you create your own m3u files</li>
+    <li>installpackage.sh : a simple shell script that will install all packages and libraries you need</li>
+    <li>installsertvice.sh : a simple shell script that will install the service to make PiReveil start each time the Pi is rebooted.<br><b>Be careful</b> : it assumes that everything is in /home/pi/pireveil/. If not, you will have to change it</li>
+    <li>key_demo.py : a short script included with the screen when you bought it that helps you test the screen and the buttons</li>
+    <li>LCD_1in44.py and LCD_Config.py : Essential libraries to control the screen</li>
+    <li>main.py : a short script included with the screen when you bought it that demonstrates the screen's capabilities</li>
+    <li>param.ini : Dream machine parameters</li>
+    <li>pireveil.py : the PiReveil software</li>
+    <li>pireveil.service : the PiReveil description service file for systemctl <b>Be careful</b> Open it and change the directories path in the script if necessary</li>
+    <li>play.py : A very simple python script used by pireveil.py to play mp3 or m3u files and radio streaming</li>
+    <li>radiolist.json : a json file that describes and list some webradios (make your own with your favorite editor)</li>
+    <li>time.bmp : An image that pireveil will show while starting</li>
     </ul>
 </li> 
 </ul>
 
 # param.ini description :
-Opening this text file you will see some couples of variables and values
+Opening this text file you will see variables and values
 <ul>
-<li>alarme section: Here, pireveil.py will load and save your parameters (alarme clock, what to do to wake you up)</li>
-<li>audio section: what file will be played if you ask to listen it. index values correponds to json files</li>
+<li>alarme section: Here, pireveil.py will load and save your parameters (alarm clock, what to do to wake you up)</li>
+<li>audio section: what file will be played if you ask to listen it. index values corresponds to json files</li>
 <li>click section: short : the minimum click time to understand that it is a short click. Long : same for long click (in ms)</li>
 <li>color section: d is for day, n is for night. font_1 is for big font text. font_2 is for small font text. ico is for icons</li>
 </ul>   
@@ -103,7 +104,7 @@ If you want to change click or color settins, you will have to open param.ini an
 </ul> 
 
 # How to use : the screens
-PiReveil can show 2 differents screens
+<b>PiReveil can show 2 differents screens</b>
 The first is the main. It shows :
 <ul>
 <li>
@@ -126,7 +127,7 @@ If set, what you can listen now (radio stations name , mp3 name or beep file nam
 </li>
 </ul>
 
-The second is the alarmclock seetings. It shows :
+<b>The second is the alarmclock seetings. It shows :</b>
 <ul>
 <li>
 If playing someting : a play icons
