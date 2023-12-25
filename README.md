@@ -9,7 +9,8 @@ Building a dream machine using a Raspberry Pi
 
 # What do you need ?
 <ul>
-<li>A raspberry Pi (whichever you choose : Pi Zero, 1, 2, 3, 4 ,5) with an internet connexion (Ethernet or Wifi)<br>
+<li>A raspberry Pi (you can choose : Pi Zero, 1, 2, 3, 4 but NOT Pi 5 !) with an internet connexion (Ethernet or Wifi)<br>
+The Raspberry Pi 5 use different hardware and can not be used with the RPi.GPIO library.
 Mine is a Raspberry Pi2 with a Wifi USB dongle and a silent cooling box like this<br><br>
 <img src="./images/radiateur_pi.png" width="256"/>
 </li>
