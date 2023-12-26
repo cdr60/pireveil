@@ -243,7 +243,8 @@ class LCD(config.RaspberryPi):
 			return -1
 		
 		#Turn on the backlight
-		self.bl_DutyCycle(100)
+		#self.bl_DutyCycle(90)
+		self.digital_write(self.GPIO_BL_PIN, 1)
 		
 		#Hardware reset
 		self.LCD_Reset()

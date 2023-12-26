@@ -52,8 +52,10 @@ class RaspberryPi:
 
         self.GPIO_RST_PIN= self.gpio_mode(rst,self.OUTPUT)
         self.GPIO_DC_PIN = self.gpio_mode(dc,self.OUTPUT)
-        self.GPIO_BL_PIN = self.gpio_pwm(bl)
-        self.bl_DutyCycle(0)
+        #self.GPIO_BL_PIN = self.gpio_pwm(bl)
+        #self.bl_DutyCycle(0)
+        self.GPIO_BL_PIN = self.gpio_mode(bl,self.OUTPUT)
+        self.digital_write(self.GPIO_BL_PIN, 1)
         
         #init GPIO
         # for P4:
@@ -122,7 +124,8 @@ class RaspberryPi:
         logging.debug("gpio cleanup...")
         self.digital_write(self.GPIO_RST_PIN, 1)
         self.digital_write(self.GPIO_DC_PIN, 0)   
-        self.GPIO_BL_PIN.close()
+        self.digital_write(self.GPIO_BL_PIN, 0)   
+        #self.GPIO_BL_PIN.close()
         time.sleep(0.001)
 
 ### END OF FILE ###
