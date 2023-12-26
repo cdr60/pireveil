@@ -640,12 +640,12 @@ class MonReveil():
 		# DESSINER UN RECTANGLE FOND INDIGO
 		self.draw.rectangle((0,0,self.width,self.height), outline=self.DATA_INI["color"]["background"], fill=self.DATA_INI["color"]["background"])
 
-		#CONTOUR BLEU NAVY
-		navy_color="#002951"
-		self.draw.line([(0,0),(127,0)], fill = navy_color,width = 1)
-		self.draw.line([(127,0),(127,127)], fill = navy_color,width = 1)
-		self.draw.line([(127,127),(0,127)], fill = navy_color,width = 1)
-		self.draw.line([(0,127),(0,0)], fill = navy_color,width = 1)		
+		#CONTOUR
+		#border_color="#002951"
+		#self.draw.line([(0,0),(127,0)], fill = border_color,width = 1)
+		#self.draw.line([(127,0),(127,127)], fill = border_color,width = 1)
+		#self.draw.line([(127,127),(0,127)], fill = border_color,width = 1)
+		#self.draw.line([(0,127),(0,0)], fill = border_color,width = 1)		
 		#TEXTE pour test
 		myfont = ImageFont.truetype(self.fontfile, 16)
 		self.draw.text((5, 5), "waveshare", fill = self.get_default_color("font_1"), font = myfont)
@@ -806,12 +806,13 @@ class MonReveil():
 		self.oldmin=dt.minute
 		#Effacer
 		self.draw.rectangle((0,0,self.width,self.height), outline=self.DATA_INI["color"]["background"], fill=self.DATA_INI["color"]["background"])
-		#CONTOUR BLEU NAVY
-		navy_color="#002951"
-		self.draw.line([(0,0),(127,0)], fill = navy_color,width = 1)
-		self.draw.line([(127,0),(127,127)], fill = navy_color,width = 1)
-		self.draw.line([(127,127),(0,127)], fill = navy_color,width = 1)
-		self.draw.line([(0,127),(0,0)], fill = navy_color,width = 1)
+		
+		#CONTOUR
+		#border_color="#002951"
+		#self.draw.line([(0,0),(127,0)], fill = border_color,width = 1)
+		#self.draw.line([(127,0),(127,127)], fill = border_color,width = 1)
+		#self.draw.line([(127,127),(0,127)], fill = border_color,width = 1)
+		#self.draw.line([(0,127),(0,0)], fill = border_color,width = 1)	
 		
 		#ICONE PLAYER
 		col=self.DATA_INI["color"]["background"]
@@ -961,12 +962,13 @@ class MonReveil():
 		if self.refreshalarme!=True : return
 		#Effacer
 		self.draw.rectangle((0,0,self.width,self.height), outline=self.DATA_INI["color"]["background"], fill=self.DATA_INI["color"]["background"])
-		#CONTOUR BLEU NAVY
-		navy_color="#002951"
-		self.draw.line([(0,0),(127,0)], fill = navy_color,width = 1)
-		self.draw.line([(127,0),(127,127)], fill = navy_color,width = 1)
-		self.draw.line([(127,127),(0,127)], fill = navy_color,width = 1)
-		self.draw.line([(0,127),(0,0)], fill = navy_color,width = 1)
+		
+		#CONTOUR
+		#border_color="#002951"
+		#self.draw.line([(0,0),(127,0)], fill = border_color,width = 1)
+		#self.draw.line([(127,0),(127,127)], fill = border_color,width = 1)
+		#self.draw.line([(127,127),(0,127)], fill = border_color,width = 1)
+		#self.draw.line([(0,127),(0,0)], fill = border_color,width = 1)	
 		
 		#ICONE PLAYER
 		col=self.DATA_INI["color"]["background"]
