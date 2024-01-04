@@ -74,7 +74,7 @@ def initdata():
 	data["alarme"]={"heure":"00:00","duree":"1","active":"0","beepindex":"","radioindex":"","fileindex":""}
 	data["audio"]={"beepindex":"","radioindex":"","fileindex":""}
 	data["click"]={"short":"200","long":"1000"}
-	data["color"]={"font_1_d":"#A4A4A4","font_1_n":"#939393","font_2_d":"#D4D4D4","font_2_n":"#C3C3C3","ico_d":"#D4D4D4","ico_n":"#C3C3C3","background":"#000000"}
+	data["color"]={"font_1_d":"#A4A4A4","font_1_n":"#939393","font_2_d":"#D4D4D4","font_2_n":"#C3C3C3","ico_d":"#D4D4D4","ico_n":"#C3C3C3","background":"#000000","day_start":"08:00","day_end":"2200"}
 	return data
 	
 def loadjson(jsonfile):
@@ -239,6 +239,39 @@ def loadini(ficini,alarmelist,radiolist,audiolist):
 	else: parser.set("color","background",data["color"]["background"])
 	
 	#############################################
+	# DEBUT ET FIN DE LA JOURNEE(CHANGEMENT AUTO DE COULEUR)
+	#############################################
+	if (parser.has_option("color", "day_start")):
+		ss=parser.get("color", "day_start")
+		tb=ss.split(":")
+		if (len(tb)!=2): 
+			ss="08:00"
+			tb[0]="08"
+			tb[1]="00"
+		try:
+			h=int(tb[0])
+			m=int(tb[1])
+		except:
+			ss="08:00"
+		data["color"]["day_start"]=str(ss)
+	else: parser.set("color","day_start",data["color"]["day_start"])
+	
+	if (parser.has_option("color", "day_end")):
+		ss=parser.get("color", "day_end")
+		tb=ss.split(":")
+		if (len(tb)!=2): 
+			ss="22:00"
+			tb[0]="22"
+			tb[1]="00"
+		try:
+			h=int(tb[0])
+			m=int(tb[1])
+		except:
+			ss="22:00"
+		data["color"]["day_end"]=str(ss)
+	else: parser.set("color","day_end",data["color"]["day_end"])
+	
+	#############################################
 	# DUREE DU CLICK COURT EN MILLISECONDES
 	#############################################
 	if (parser.has_option("click", "short")):
@@ -395,6 +428,7 @@ def loadini(ficini,alarmelist,radiolist,audiolist):
 	
 	if (data["alarme"]["beepindex"]=="") and (data["alarme"]["radioindex"]=="") and (data["alarme"]["fileindex"]==""):
 		data["alarme"]["beepindex"]="0"
+
 	with open(ficini, 'w') as configfile:
 		parser.write(configfile)	
 	return data
@@ -417,6 +451,8 @@ def saveini(data_ini,ficini):
 	config["color"]["ico_d"]=data_ini["color"]["ico_d"]
 	config["color"]["ico_n"]=data_ini["color"]["ico_n"]
 	config["color"]["background"]=data_ini["color"]["background"]
+	config["color"]["day_start"]=data_ini["color"]["day_start"]
+	config["color"]["day_end"]=data_ini["color"]["day_end"]
 	with open(ficini,'w') as configfile:
 		config.write(configfile)
 	
@@ -614,8 +650,19 @@ class MonReveil():
 	def get_default_color(self,ft="font_1"):
 		dt = datetime.datetime.now()
 		x=dt.hour*100+dt.minute
+		
+		ds=800
+		t=self.DATA_INI["color"]["day_start"].split(":")
+		if (len(t)==2): ds=100*int(t[0])+int(t[1])
+		
+		de=2200
+		t=self.DATA_INI["color"]["day_end"].split(":")
+		if (len(t)==2): de=100*int(t[0])+int(t[1])
+		
+		print("ds="+str(ds)+"  de="+str(de))
+
 		#jour ou nuit ?
-		if (x>=1400 and x<=2200): s=ft+"_d"
+		if (x>=ds and x<=de): s=ft+"_d"
 		else: s=ft+"_n"
 		return self.DATA_INI["color"][s]
 
