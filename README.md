@@ -87,6 +87,7 @@ Opening this text file you will see variables and values
 <li>click section: Short : set the minimum click time for a short click (in ms)</li>
 <li>click section: Long : same but for a long click (in ms)</li>
 <li>color section: d is for day, n is for night, font_1 is for big font text, font_2 is for small font text, ico is for icons</li>
+<li>color section: day_start and day_end are times to make pireveil choose between "d" or "n" font color</li>
 </ul>   
 
 Using the buttons, pireveil.py will change and save alarme and audio sections
