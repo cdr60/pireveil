@@ -1,0 +1,17 @@
+[Unit]
+Description=HttpReveil
+After=rc-local.service
+
+
+[Service]
+Type=simple
+#Restart=always
+User=root
+ExecStart=/usr/bin/python3 /home/pi/pireveil/server.py 80
+#TimeoutSec=infinity
+PIDFile=/home/pi/pireveil/server.pid
+
+[Install]
+WantedBy=multi-user.target
+
+
