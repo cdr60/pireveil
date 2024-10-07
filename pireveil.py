@@ -194,6 +194,7 @@ class MonReveil():
 
 		self.ficini=os.path.dirname(os.path.realpath(__file__))+"/param.ini"
 		self.DATA_INI=loadini(self.ficini,self.alarmelist,self.radiolist,self.audiolist)
+		self.DATA_SECOND=datetime.datetime.now().second
 		print(self.DATA_INI)
 
 		#Si le reveil sonne, le stoper automatiquement au bout de ... minutes
@@ -950,6 +951,24 @@ if (__name__ == "__main__"):
 				#arrêter le reveil ou toute sortie sonore
 				elif (btn=="K_PRESS") and (typ=="short"):
 					if reveil.radiothread!=None: reveil.start_stop_playing_audio("")
+				#Regarder si changement via la page web
+				else:
+					datatsdiff=datetime.datetime.now().second-reveil.DATA_SECOND
+					if datatsdiff<0: datatsdiff+=60
+					#si pas relut depuis plus de 10 sec, on revérifie:
+					haschanged=False
+					if datatsdiff>10:	haschanged=readhaschanged()
+					#Si changement : relecture
+					if haschanged==True:
+						print(datatsdiff)
+						reveil.DATA_INI=loadini(reveil.ficini,reveil.alarmelist,reveil.radiolist,reveil.audiolist)
+						print(reveil.DATA_INI)
+						reveil.dureealarme=int(reveil.DATA_INI["alarme"]["duree"])
+						reveil.clickshort=int(reveil.DATA_INI["click"]["short"])
+						reveil.clicklong=int(reveil.DATA_INI["click"]["long"])
+						writehaschanged("0")
+						reveil.DATA_SECOND=datetime.datetime.now().second
+				
 				reveil.KB.lock.release()
 				time.sleep(0.01)
 			#PAGE REGLAGE ALARME

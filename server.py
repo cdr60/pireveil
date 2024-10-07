@@ -491,11 +491,12 @@ class S(BaseHTTPRequestHandler):
 	def do_DELETE(self):
 		self.do_log("DELETE")
 
-def run(address='',port=DEFAULTPORT,server_class=HTTPServer, handler_class=S):
+def run(port=DEFAULTPORT,server_class=HTTPServer, handler_class=S):
+	address=''
 	logging.basicConfig(level=logging.INFO)
 	server_address = (address, port)
 	httpd = server_class(server_address, handler_class)
-	logging.info('Starting httpd...on port %d...addresse %s\n',port,address)
+	logging.info('Starting httpd...on port %d..\n',port)
 	try:
 		httpd.serve_forever()
 	except KeyboardInterrupt:
@@ -504,11 +505,13 @@ def run(address='',port=DEFAULTPORT,server_class=HTTPServer, handler_class=S):
 	logging.info('Stopping httpd...\n')
 
 if __name__ == '__main__':
-	ad='0.0.0.0'
 	PORT=DEFAULTPORT
-	print("Usage:\n" + sys.argv[0] + " [address] [port]")
-	if len(sys.argv) >= 2: ad=sys.argv[1]
-	if len(sys.argv) >= 3: PORT=sys.argv[2]
+	print("Usage: "+sys.argv[0]+" [port, default : "+str(DEFAULTPORT)+" ]")
+	if len(sys.argv) >= 2: 
+		try:
+			PORT=int(sys.argv[1])
+		except:
+			PORT=DEFAULTPORT
 	
 	rootdir=os.path.dirname(os.path.realpath(__file__))
 	if not rootdir.endswith(os.path.sep): rootdir += os.path.sep
@@ -520,5 +523,4 @@ if __name__ == '__main__':
 	JSFILE=rootdir+"tools.js"
 	PARAMFILE=rootdir+"param.ini"
 	TBCOLOR=loadtbcolor()
-	
-	run(ad,PORT)
+	run(PORT)

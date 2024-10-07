@@ -2,7 +2,28 @@
 from configparser import ConfigParser
 import os
 import json
+import tempfile
 
+######################################################
+# Lecture du fichier Temp pour savoir s'il y a eu changement
+######################################################
+def readhaschanged():
+	TMPCHANGEFILE=tempfile.gettempdir()+os.path.sep+"pirevreil.tmp"
+	if os.path.exists(TMPCHANGEFILE)==False: return False
+	file_contents=""
+	with open(TMPCHANGEFILE,'r') as tmp_file:
+		file_contents = tmp_file.read(1)
+	tmp_file.close()
+	return (str(file_contents)=="1")
+######################################################
+# Ecriture du fichier Temp pour savoir s'il y a eu changement
+######################################################
+def writehaschanged(haschanged="0"):
+	TMPCHANGEFILE=tempfile.gettempdir()+os.path.sep+"pirevreil.tmp"
+	with open(TMPCHANGEFILE,'w+') as tmp_file:
+		tmp_file.write(haschanged)
+	tmp_file.close()
+	return True
 
 ######################################################
 # Lecture du fichier Ini de parametrage de l'alarme
@@ -396,3 +417,5 @@ def saveini(data_ini,ficini):
 	config["color"]["day_end"]=data_ini["color"]["day_end"]
 	with open(ficini,'w') as configfile:
 		config.write(configfile)
+	#Signal les changements
+	writehaschanged("1")
