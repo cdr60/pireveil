@@ -70,10 +70,14 @@ Mine is a Raspberry Pi2 with a Wifi USB dongle and a silent cooling box like thi
     <li>LCD_1in44.py and LCD_Config.py : Essential libraries to control the screen</li>
     <li>main.py : a short script included with the screen when you bought it that demonstrates the screen's capabilities</li>
     <li>param.ini : Dream machine parameters</li>
+    <li>tools.py : Some very simple commun functions</li>
     <li>pireveil.py : the PiReveil software</li>
+    <li>server.py : the PiReveil http service software</li>
     <li>pireveil.service : the PiReveil description service file for systemctl <b>Be careful</b> Open it and change the directories path in the script if necessary</li>
+    <li>httpreveil.service : the PiReveil http description service file for systemctl <b>Be careful</b> Open it and change the directories path in the script if necessary</li>
     <li>play.py : A very simple python script used by pireveil.py to play mp3 or m3u files and radio streaming</li>
     <li>radiolist.json : a json file that describes and list some webradios (make your own with your favorite editor)</li>
+    <li>base.html, style.css, tools.js : files to build the http server web page</li>
     <li>time.bmp : An image that pireveil will show while starting</li>
     </ul>
 </li> 
@@ -167,4 +171,13 @@ Current alarm time and a red cursor that indicates what digit you can change now
 <li>Joypad short right : increase selected digit</li>
 <li>Joypad long UP : Return to main screen</li>
 </ul>
+
+# Using the httpserver
+By default, it use the http standard port (80)
+In this case, use the raspbérry's Ip ex : http://192.168.1.15 if 192.168.1.15 is the raspberry's ip
+You can use your smartphone, PC or what ever you want
+Then you ville see this page, that allows you to change some parameters
+![httppireveil](https://github.com/user-attachments/assets/5eb08619-f1da-4557-af66-b5cf2e01fd46)
+
+
 
