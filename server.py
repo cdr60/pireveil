@@ -27,16 +27,16 @@ def formdata_to_data(formdata):
 
 def loadtbcolor():
 	result=[]
-	for i in range(0,16):
-		a=hex(16*i).replace("0x","")
+	for i in range(0,4):
+		a=hex(64*i).replace("0x","")
 		if len(a)==1: a="0"+a
-		for j in range(0,16):
-			b=hex(16*j).replace("0x","")
+		for j in range(0,4):
+			b=hex(64*j).replace("0x","")
 			if len(b)==1: b="0"+b
-			for k in range(0,16):
-				c=hex(16*k).replace("0x","")
+			for k in range(0,4):
+				c=hex(64*k).replace("0x","")
 				if len(c)==1: c="0"+c
-				result.append("#"+(c+b+a).upper())
+				result.append("#"+(a+b+c).upper())
 	return result
 	
 
